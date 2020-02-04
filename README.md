@@ -12,7 +12,7 @@ In this project we used a raw reads in FASTQ format (NCBI BioProject accession -
 
 ## How to work with our pipeline
 
-![](/home/stephen/Git_Repositories/VDJ_Recombination/pipeline.jpg)
+![](https://raw.githubusercontent.com/prefabsprout/VDJ_recomb_approbation/master/pipeline.jpgg)
 
 - To assemble raw FASTQ reads use that line: 
 `pandaseq -f SRR5888724_1.fastq -r SRR5888724_2.fastq > SRR5888724.fasta`
@@ -22,11 +22,11 @@ To revcomp data use revcomp.py. In "default" variable insert path to your origin
 Also we erased corrupted string from SRR5888726 with erase_by_id.py.
 
 - To work with Partis use next oneliners:
-`sudo docker cp SRR5888729_revcomp.fasta container-1:partis/SRR5888729_revcomp.fasta # Copy FASTA file to container`
-`sudo docker run -it --name container-1 -v ~:/home/stephen psathyrella/partis /bin/bash # Run Docker container with Partis`
-`./bin/partis partition --infname ./SRR5888729_revcomp.fasta  --outfname ./SRR5888729_parted.yaml --n-random-queries 10000 --n-procs 2 # Run partition with sample `
-`bin/partis view-output --outfname SRR5888729_parted.yaml > toparse_SRR5888729_parted.yaml # To print the partitions and/or annotations from an existing output file`
-`sudo docker cp container-1:partis/toparse_SRR5888729_parted.yaml toparse_SRR5888729_parted.yaml # Copy FASTA out of container`
+`sudo docker cp SRR5888729_revcomp.fasta container-1:partis/SRR5888729_revcomp.fasta # Copy FASTA file to container`  
+`sudo docker run -it --name container-1 -v ~:/home/stephen psathyrella/partis /bin/bash # Run Docker container with Partis`  
+`./bin/partis partition --infname ./SRR5888729_revcomp.fasta  --outfname ./SRR5888729_parted.yaml --n-random-queries 10000 --n-procs 2 # Run partition with sample `  
+`bin/partis view-output --outfname SRR5888729_parted.yaml > toparse_SRR5888729_parted.yaml # To print the partitions and/or annotations from an existing output file`  
+`sudo docker cp container-1:partis/toparse_SRR5888729_parted.yaml toparse_SRR5888729_parted.yaml # Copy FASTA out of container`  
 
 - To prepare our FASTA file for yaml parser use:
 `sed -i 's/:/c/g' SRR5888729_revcomp.fasta`
@@ -44,9 +44,9 @@ Also we erased corrupted string from SRR5888726 with erase_by_id.py.
 
 ## Approbation results
 
-![Гистограммы распределений длин N1-зон. Синий цвет - модельные данные, красный цвет - экспериментальные](/home/stephen/Git_Repositories/VDJ_Recombination/Model/pheno13.png)
+![Гистограммы распределений длин N1-зон. Синий цвет - модельные данные, красный цвет - экспериментальные](https://raw.githubusercontent.com/prefabsprout/VDJ_recomb_approbation/master/pheno13.png)
 
-![Таблица с результатами](/home/stephen/Git_Repositories/VDJ_Recombination/Visualisation/results_table.jpg)
+![Таблица с результатами](https://raw.githubusercontent.com/prefabsprout/VDJ_recomb_approbation/master/Visualisation/results_table.jpg)
 
 ## Minimum system requirements
 
