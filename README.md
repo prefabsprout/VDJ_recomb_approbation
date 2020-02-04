@@ -12,7 +12,7 @@ In this project we used a raw reads in FASTQ format (NCBI BioProject accession -
 
 ## How to work with our pipeline
 
-![](https://raw.githubusercontent.com/prefabsprout/VDJ_recomb_approbation/master/pipeline.jpgg)
+![](https://raw.githubusercontent.com/prefabsprout/VDJ_recomb_approbation/master/pipeline.jpg)
 
 - To assemble raw FASTQ reads use that line: 
 `pandaseq -f SRR5888724_1.fastq -r SRR5888724_2.fastq > SRR5888724.fasta`
@@ -21,7 +21,7 @@ In this project we used a raw reads in FASTQ format (NCBI BioProject accession -
 To revcomp data use revcomp.py. In "default" variable insert path to your original data, in "result" path to your revcomped file. 
 Also we erased corrupted string from SRR5888726 with erase_by_id.py.
 
-- To work with Partis use next oneliners:
+- To work with Partis use next oneliners:  
 `sudo docker cp SRR5888729_revcomp.fasta container-1:partis/SRR5888729_revcomp.fasta # Copy FASTA file to container`  
 `sudo docker run -it --name container-1 -v ~:/home/stephen psathyrella/partis /bin/bash # Run Docker container with Partis`  
 `./bin/partis partition --infname ./SRR5888729_revcomp.fasta  --outfname ./SRR5888729_parted.yaml --n-random-queries 10000 --n-procs 2 # Run partition with sample `  
