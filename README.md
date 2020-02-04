@@ -44,9 +44,11 @@ Also we erased corrupted string from SRR5888726 with erase_by_id.py.
 
 ## Approbation results
 
+Histogrames of N1-zone length distribution. Blue - model data, red - experimental:  
 ![Гистограммы распределений длин N1-зон. Синий цвет - модельные данные, красный цвет - экспериментальные](https://raw.githubusercontent.com/prefabsprout/VDJ_recomb_approbation/master/pheno13.png)
 
-![Таблица с результатами](https://raw.githubusercontent.com/prefabsprout/VDJ_recomb_approbation/master/Visualisation/results_table.jpg)
+Table with analysis results:  
+![](https://raw.githubusercontent.com/prefabsprout/VDJ_recomb_approbation/master/Visualisation/results_table.jpg)
 
 ## Minimum system requirements
 
