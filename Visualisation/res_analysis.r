@@ -5,6 +5,9 @@ library(ggpubr)
 library(LaplacesDemon)
 
 setwd('/home/stephen/Git_Repositories/VDJ_Recombination/Visualisation')
+
+# Probability model
+
 my_dt <- function(param,n){
 
   pp <- param[1]
@@ -34,6 +37,7 @@ objfun2 <- function(param,n){
   -sum( log(my_dt(param, n$Length))*n$Freq )
 }
 
+# Evaluate an optimum
 
 my_optimsearch <- function(in_sample){
   rez<-optim(c(0.25,0.1,0.35),objfun,n=in_sample,method="L-BFGS-B",lower = c(0.01, 0.01, 0.01), upper=c(0.99,0.99,0.99))    
@@ -75,6 +79,8 @@ for(sample_size in c(10,100,1000,2000,4000,8000,16000)){
   print(mean(er))
 }
 
+# Validation plot
+
 rez_df$sample_size <- as.factor(rez_df$sample_size)
 rez_df$logRSSE = log(rez_df$RSSE)
 ggplot(rez_df, aes(x=sample_size, y=logRSSE, fill=sample_size)) + 
@@ -104,7 +110,7 @@ mod <- read.csv('/home/stephen/Git_Repositories/VDJ_Recombination/Model/model_da
 error <- function(vector1,vector2) log( sqrt( sum( (as.numeric(vector2) - as.numeric(vector1))^2 ) ) )
 error_notlog <- function(vector1,vector2)  sqrt( sum( (as.numeric(vector2) - as.numeric(vector1))^2 ) ) 
 
-#############
+############# Result stat
 
 ID = c('SRR5888724','SRR5888725','SRR5888726',
        'SRR5888727','SRR5888728','SRR5888729',
